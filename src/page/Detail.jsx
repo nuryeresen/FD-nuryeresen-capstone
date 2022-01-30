@@ -27,6 +27,7 @@ const Detail = (props) => {
   const movieCastData = movieCreditsQuery?.data?.cast
   const movieCrewData = movieCreditsQuery?.data?.crew
   const crewList = ["director", "producer"]
+  
 return(
   <>
      
