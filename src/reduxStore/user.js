@@ -47,9 +47,6 @@ const initialState = {
     console.log(user)
     switch (action.type) {
         case VALIDATE_USER:
-           
-          
-            
             return action.payload.username === user.username && action.payload.password === user.password && { ...user, userLogin: true } 
         case ADD_FAV_MOVIES:
             return !user.favoritesList.favoritesFilms.includes(action.payload) ?
@@ -61,7 +58,9 @@ const initialState = {
                     return initialState
                 default:
             return user
-    }
+          }
 }
 
-export { userReducer }
+export { userReducer }    
+            
+           

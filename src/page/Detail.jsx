@@ -26,7 +26,7 @@ const Detail = (props) => {
   console.log("Reviews:::", reviewsData)
   const movieCastData = movieCreditsQuery?.data?.cast
   const movieCrewData = movieCreditsQuery?.data?.crew
-  const crewList = ["director", "producer"]
+  const job = ["director", "producer"]
   
 return(
   <>
@@ -44,7 +44,7 @@ return(
     <h6 >Genre:{movieData?.genres.map(item => <span key={item?.id} >{item.name} </span>)}</h6>
       <h6>Cast:</h6>
   {
-            movieCrewData?.filter(item => crewList.includes(item.job.toLowerCase())).map(item => <li key={item}> <strong>{item.job}</strong>: {item.name}</li>)
+            movieCrewData?.filter(item => job.includes(item.job.toLowerCase())).map(item => <li key={item}> <strong>{item.job}</strong>: {item.name}</li>)
           }
     </div>
   </div>

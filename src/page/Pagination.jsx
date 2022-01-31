@@ -96,11 +96,11 @@ function Paginate(props) {
 
 console.log(searchValue)
 
-/* useEffect(() => {
-  if (-----) {
-    (navigate("/search"))
+/*   useEffect(() => {
+  if (data) {
+   (navigate("/search"))
   }
-}, [---, navigate]) */
+ }, [data, navigate]) */
   return (
     <>
  

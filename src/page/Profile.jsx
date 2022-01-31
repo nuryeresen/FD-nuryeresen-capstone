@@ -85,14 +85,6 @@ const Profile = (props) => {
       <h1>Profile</h1>
  
       <div>
-              <Link to={user.socials.instagram}>
-       <FiInstagram  /> 
-              </Link>
-              <Link to={user.socials.twitter}>
-                <FaTwitter  /> 
-              </Link>
-            </div>
-      <div>
       <form>
 <h3 > Filter By </h3>
 <select id = "myList" onChange = {favTutorial} >

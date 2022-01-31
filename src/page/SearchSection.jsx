@@ -12,6 +12,7 @@ const SearchSection = (props) => {
 
     const location= useLocation();
     const navigate = useNavigate()
+    const [q, setQ] = useState("");
   const {searchValue, setSearchValue} = useContext(SearchContext)
   const [data, SetData]=useState([])
  console.log(searchValue)
@@ -22,24 +23,31 @@ useEffect(()=> {
 }, [searchValue])
 console.log(location)
 
-//navigation yapp
- /*  useEffect(() => {
-  if (data) {
-   (navigate("/search"))
+ function formSubmit(event) {
+  event.preventDefault();
+  if (!!event.target.value) {
+      setQ(event.target.value);
+      navigate(`/search?query=${event.target.value}`);
   }
- }, [data, navigate]) */
-
+  event.target.value = '';
+}
   return (
     <>
     
       <div className="container mt-3">
           <div className='row text-light'>
-              <div className="col-lg-10 col-8">
+              <div className="col-sm-12">
                   <label htmlFor="search" className="form-label fs-3"></label>
-                  <input name="qInput" type="text" className="form-control" id="search"
-                      placeholder="Search"  defaultValue={searchValue} onChange={(e) => {
-                     setSearchValue(e.target.value) }} />
-                   
+                  <form onSubmit={formSubmit}>
+                  <input name="q" 
+                  type="text"
+                   className="form-control"
+                    id="search"
+                      placeholder="Search"  
+                      defaultValue={searchValue} 
+                      onChange={(event) => {setSearchValue(event.target.value) }} />
+                     </form> 
+                           
                </div>
               <div className="container d-flex">
          

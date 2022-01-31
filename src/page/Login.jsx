@@ -35,7 +35,7 @@ const Login = (props) => {
     if (user.userLogin) {
      (navigate("/profile"))
     }
-  }, [user])
+  }, [user,navigate])
 //NAVİGATEE IF
  /*  function handleLogin(e) {
     e.preventDefault();

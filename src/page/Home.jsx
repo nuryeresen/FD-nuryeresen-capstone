@@ -27,14 +27,7 @@ const Home = (props) => {
       select: (data) => data.data.results,
       retry: false,
     });
-   // const[searchvalue, setSearchValue]=useState(" ")
-//[..., newDatas] load more tarafıı
-//search bar
-
-
-  //  console.log(q)
-
- 
+  
   const genres = useQuery("genres", fetchMovieGenres, {
     retry: false,
   
@@ -54,9 +47,6 @@ const Home = (props) => {
       <Slider {...sliderSettings}>
            { data?.map((item) => (
               <div key={item?.id}  className="col-sm ">
-             
-                
-              
            <Link className="text-decoration-none" to={"/movies/"+ item.id }> 
   <Card style={{ width: '18rem' }} >
   <Card.Img variant="top" src={`https://image.tmdb.org/t/p/w500` + item.poster_path} />
