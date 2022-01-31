@@ -20,6 +20,7 @@ const Home = (props) => {
   const [search, setSearch] = useState("");
   const [q, setQ] = useState([]);
   const [filter, setFilter] = useState("");
+ 
   
   const { isLoading, isError, error, isFetched, isFetching, data, ...query } =
     useQuery("movie", fetchDiscoverMovies, {

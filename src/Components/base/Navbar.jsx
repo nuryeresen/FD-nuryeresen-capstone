@@ -22,14 +22,14 @@ const closeDropdown = () => {
      <div className="col-sm-12 d-flex justify-content-end">{/* responsive değilll */}
      <div className={`navbar navbar-expand-lg ${theme.navbar}`}>
       <div className=" d-flex justify-content-center m-4">
-        <h4 className="d-inline justify-content-center border border-danger text-muted">
+        {/* <h4 className="d-inline justify-content-center border border-danger text-muted">
           Capstone Project
-        </h4>
+        </h4> */}
        <ChangeThemeButton /> 
      
   <div className='btn-group px-3 text-muted' onMouseEnter={openDropdown} onMouseLeave={closeDropdown}>
   <Link to="/sort-filter" >
-     <SecondaryButton><h5>Movies</h5></SecondaryButton>
+     <SecondaryButton><h5 className=" d-flex justify-content-center">Movies</h5></SecondaryButton>
      </Link>
     <ul id="movies-dropdown" className="dropdown-menu position-absolute top-100">
     <li><Link className="dropdown-item" to="sort-filter/popular">Popular</Link></li>

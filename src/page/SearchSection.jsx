@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { SearchContext } from "../context/SearchContext"
 import { useLocation, useNavigate } from "react-router-dom"
 import { useContext } from 'react';
@@ -7,39 +7,27 @@ import { fetchMovies } from '../api';
 import { Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import Paginate from './Pagination';
+import { CardDescription } from '../styledComponents/Card';
 const SearchSection = (props) => {
 
     const location= useLocation();
     const navigate = useNavigate()
   const {searchValue, setSearchValue} = useContext(SearchContext)
-
+  const [data, SetData]=useState([])
  console.log(searchValue)
 useEffect(()=> {
     
     (searchValue !== "" &&fetch(`https://api.themoviedb.org/3/search/movie?query=${searchValue}&api_key=a75c039072f6f6025a9c53a11184882b`).then(response => response.json())
-    .then(data => console.log(data))); 
+    .then(x => SetData(x))); 
 }, [searchValue])
 console.log(location)
 
-//NAVİGATE YAP
-function handleSearch(e) {
-  e.preventDefault();
-  const user = JSON.parse(localStorage.getItem("userData"));
-  console.log("target", e.target.username.value);
-
-  if (searchValue === e.target.searchValue.value ) {
-
-      console.log("git:::", searchValue);
-      navigate("/search");
-      setSearchValue(true);
+//navigation yapp
+ /*  useEffect(() => {
+  if (data) {
+   (navigate("/search"))
   }
-  else{
-      navigate("/home");
-  }
-
-}
-
-
+ }, [data, navigate]) */
 
   return (
     <>
@@ -51,11 +39,11 @@ function handleSearch(e) {
                   <input name="qInput" type="text" className="form-control" id="search"
                       placeholder="Search"  defaultValue={searchValue} onChange={(e) => {
                      setSearchValue(e.target.value) }} />
-                    {/* ==navigate(`/search?q=${event.target.qInput.value`}  */}
                    
                </div>
-              <div className="col-lg-2 col-4 align-items-end d-flex">
-{/* {location.pathname === "/search" && data?.data?.results.map(item => <Link className="text-decoration-none" to={"/search/"+ item.id }> 
+              <div className="container d-flex">
+         
+{ data?.results?.map(item => <Link className="text-decoration-none" to={"/movies"}> 
   <Card style={{ width: '18rem' }} >
   <Card.Img variant="top" src={`https://image.tmdb.org/t/p/w500` + item.poster_path} />
   <Card.Body>
@@ -68,7 +56,9 @@ function handleSearch(e) {
     </Card.Text>
   </Card.Body>
 </Card>
-</Link> )} */}
+</Link> )}
+
+
               </div>
               <div className='col-sm-12 m-3'><Paginate/> </div>
           </div>

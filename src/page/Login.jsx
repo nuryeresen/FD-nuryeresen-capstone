@@ -35,7 +35,7 @@ const Login = (props) => {
     if (user.userLogin) {
      (navigate("/profile"))
     }
-  }, [user, navigate])
+  }, [user])
 //NAVİGATEE IF
  /*  function handleLogin(e) {
     e.preventDefault();
@@ -64,7 +64,7 @@ const Login = (props) => {
     <span className="validity"></span>
  {/*    <p>Usernames must be lowercase and 4-8 characters in length.</p> */}
     <label htmlFor="uname"> Password: </label>
-    <input type="Password" onChange={(e) => setUserName(e.target.value)} id="password" name="name" required size="45"
+    <input type="Password" onChange={(e) => setPassword(e.target.value)} id="password" name="name" required size="45"
            pattern="[a-z]{4,8}" title="4 to 8 lowercase letters" placeholder="Password"/>
     <span className="validity"></span>
   </div>
@@ -75,7 +75,8 @@ const Login = (props) => {
      <br />
      <br />
      <br />
-    <ThirdButton onClick={() => {
+    <ThirdButton onClick={(e) => {
+      e.preventDefault();
             dispatch(validateUser(userName, password))
           }}> Login </ThirdButton>
   </div>

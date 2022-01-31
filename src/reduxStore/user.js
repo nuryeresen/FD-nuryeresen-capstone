@@ -24,8 +24,8 @@ export const addFavList = (movieId) => ({
 
 const initialState = {
     "avatarUrl": "https://i.picsum.photos/id/1005/150/150.jpg?hmac=-Q1z4K5WO9Q7qDB-R9vrj9440_mRxpeHZMOFHblbB6s",
-    "username": "sahinde",
-    "password": "password",
+    username: "sahinde",
+    password: "password",
     "socials": {
         "twitter": "https://twitter.com/",
         "instagram": "https://www.instagram.com/"
@@ -44,16 +44,20 @@ const initialState = {
     "joinDate": "December 2021"
 }
  const userReducer = (user = initialState, action) => {
+    console.log(user)
     switch (action.type) {
         case VALIDATE_USER:
-            return action.payload.username === user.username && action.payload.password === user.password ? { ...user, userLogin: true } : { ...user, userLogin: false }
+           
+          
+            
+            return action.payload.username === user.username && action.payload.password === user.password && { ...user, userLogin: true } 
         case ADD_FAV_MOVIES:
             return !user.favoritesList.favoritesFilms.includes(action.payload) ?
                 { ...user, favoritesList: { favoritesFilms: [...user.favoritesList.favoritesFilms, action.payload], totalCount: user.favoritesList.totalCount + 1 } } : user
         case ADD_SEEN_MOVIES:
             return !user.seenList.seenFilms.includes(action.payload) ?
                 { ...user, seenList: { seenFilms: [...user.seenList.seenFilms, action.payload], totalCount: user.seenList.totalCount + 1 } } : user
-                case USER_LOGOUT:
+                case USER_LOGOUT: 
                     return initialState
                 default:
             return user

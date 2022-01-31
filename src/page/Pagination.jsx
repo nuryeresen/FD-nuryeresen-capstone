@@ -125,14 +125,14 @@ console.log(searchValue)
       />
        {movieData
             .filter((d) => d.name.toLowerCase().startsWith(q))
-            .slice(offset, offset + 10)
+            .slice(offset, offset + 3)
             .map((data, k) => (
               <Col key={k} xs={12} md={4} lg={3}>
                 <Card className="m-2">
                  
                   <Card.Body>
-                    <Card.Title>{data.name}</Card.Title>
-                    <Card.Text>{data.first_brewed}</Card.Text>
+                    <Card.Title>{data.title}</Card.Title>
+                    <Card.Text>{data.id}</Card.Text>
                   </Card.Body>
                 </Card>
               </Col>
