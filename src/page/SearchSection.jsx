@@ -6,6 +6,7 @@ import { useQuery } from "react-query";
 import { fetchMovies } from '../api';
 import { Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
+import Paginate from './Pagination';
 const SearchSection = (props) => {
 
     const location= useLocation();
@@ -20,8 +21,29 @@ useEffect(()=> {
 }, [searchValue])
 console.log(location)
 
+//NAVİGATE YAP
+function handleSearch(e) {
+  e.preventDefault();
+  const user = JSON.parse(localStorage.getItem("userData"));
+  console.log("target", e.target.username.value);
+
+  if (searchValue === e.target.searchValue.value ) {
+
+      console.log("git:::", searchValue);
+      navigate("/search");
+      setSearchValue(true);
+  }
+  else{
+      navigate("/home");
+  }
+
+}
+
+
 
   return (
+    <>
+    
       <div className="container mt-3">
           <div className='row text-light'>
               <div className="col-lg-10 col-8">
@@ -48,9 +70,12 @@ console.log(location)
 </Card>
 </Link> )} */}
               </div>
+              <div className='col-sm-12 m-3'><Paginate/> </div>
           </div>
       </div>
-     )
+
+  </>  )
+     
 }
 
 export default SearchSection;         

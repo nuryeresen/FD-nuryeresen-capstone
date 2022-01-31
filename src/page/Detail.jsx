@@ -1,4 +1,4 @@
-//import React, {useState, useEffect} from 'react'
+
 import {useParams} from "react-router-dom"
 import { useQuery } from 'react-query';
 import { fetchSingleMovie, fetchSingleMovieCredits,fetchReviews } from '../api';

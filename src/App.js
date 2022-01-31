@@ -8,7 +8,7 @@ import { ThemeProvider } from "styled-components";
 import {routes} from "./routes"
 import {Routes, Route} from "react-router-dom"
 import {SearchContextProvider} from "./context/SearchContext"
-import { PaginationContextProvider } from "./context/PaginationContext";
+
 function App() {
   const { themeName } = useContext(ThemeContext);
   return (
@@ -16,7 +16,7 @@ function App() {
     <div className="container">
       <div className="row ">
         <SearchContextProvider>
-          <PaginationContextProvider>
+         
       <ThemeProvider theme={styledComponentTheme[themeName]}>
         <Navbar />
         <Routes>
@@ -25,7 +25,7 @@ function App() {
         }
        </Routes>
        </ThemeProvider>
-       </PaginationContextProvider>
+ 
        </SearchContextProvider>
       </div>
       </div>

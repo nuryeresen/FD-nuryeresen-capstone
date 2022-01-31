@@ -1,5 +1,3 @@
-/* import React from "react"; */
-//fetch("../data.json").then(x => x.json).then(console.log(x))
 /* REDUX
 import { createStore, applyMiddleware } from "redux";
 import { persistStore, persistReducer } from "redux-persist";
@@ -12,20 +10,18 @@ const persistConfig = { key: "app", storage };
 let persistedReducer = persistReducer(persistConfig, reducer);
 let store = createStore(
   persistedReducer,
-  composeWithDevTools(applyMiddleware(thunk)) */
-
-/* const Login = (props) => {
-  return(<><h1>Login</h1></>) 
-};
+  composeWithDevTools(applyMiddleware(thunk)) 
 
 export default Login; */
+
+
 
 import React from "react";
 import { ThirdButton} from "../styledComponents/Button"
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { validateUser } from '../reduxStore/userInit';
+import { validateUser } from '../reduxStore/user';
 
 const Login = (props) => {
   const navigate = useNavigate()
@@ -33,13 +29,15 @@ const Login = (props) => {
   const dispatch = useDispatch()
   const [password, setPassword] = useState("")
   const { user } = useSelector(state => state)
+  const [isLogin, setIsLogin]= useState()
+  // NAVİGATE REDUX
   useEffect(() => {
     if (user.userLogin) {
      (navigate("/profile"))
     }
   }, [user, navigate])
-
-/*   function handleLogin(e) {
+//NAVİGATEE IF
+ /*  function handleLogin(e) {
     e.preventDefault();
     const user = JSON.parse(localStorage.getItem("userData"));
     console.log("target", e.target.username.value);
@@ -51,18 +49,9 @@ const Login = (props) => {
         setIsLogin(true);
     }
     else{
-        navigate("/loginerror");
-    }
+        navigate("/login");
+    }} */
 
-} */
-
-/* function formHandler(event) {
-    event.preventDefault();
-    setUrlQ(event.target.qInput.value)
-    
-    navigate(`/arama?q=${event.target.qInput.value}`)
-} */
-  //bağlı fonk e.preventdefault yap
   return(
   <>
   <div className="d-flex justify-content-center">

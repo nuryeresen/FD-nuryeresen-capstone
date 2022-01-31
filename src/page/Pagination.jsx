@@ -64,11 +64,11 @@ export default Pagination */
 
 import React, { useState, useEffect } from "react";
 import ReactPaginate from "react-paginate";
-
 import { Card, Col } from "react-bootstrap";
 import { useContext } from 'react';
 import { SearchContext } from "../context/SearchContext"
 import { useNavigate } from "react-router-dom";
+
 
 function Paginate(props) {
   const [pageCount, setPageCount] = useState(0);
@@ -79,13 +79,13 @@ function Paginate(props) {
   const navigate = useNavigate()
   useEffect(() => {
     setMovieData(movieData);
-    setPageCount(Math.ceil(movieData.length / 10));
+    setPageCount(Math.ceil(movieData.length / 3));
   }, [movieData]);
 
   const handlePageClick = (e) => {
     const selectedPage = e.selected;
-    console.log(selectedPage * 10);
-    setOffset(selectedPage * 10);
+    console.log(selectedPage * 3);
+    setOffset(selectedPage * 3);
   };
 
   useEffect(()=> {
@@ -93,6 +93,7 @@ function Paginate(props) {
     (searchValue !== "" &&fetch(`https://api.themoviedb.org/3/search/movie?query=${searchValue}&api_key=a75c039072f6f6025a9c53a11184882b`).then(response => response.json())
     .then(data => console.log(data))); 
 }, [searchValue])
+
 console.log(searchValue)
 
 /* useEffect(() => {
@@ -102,7 +103,7 @@ console.log(searchValue)
 }, [---, navigate]) */
   return (
     <>
-   
+ 
       <ReactPaginate
         previousLabel={"prev"}
         nextLabel={"next"}

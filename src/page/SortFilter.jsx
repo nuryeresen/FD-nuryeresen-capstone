@@ -34,7 +34,7 @@ const dispatch = useDispatch()
     {/* dropdown */}
     <select className="form-select" aria-label="Default select example" value={'DEFAULT'}  onChange={(e) => dispatch((e.target.options[e.target.selectedIndex].value))}>
   <option value="DEFAULT" >Sort By</option>
-  <option defaultValue="1">A-->Z</option>
+  <option defaultValue="original_title.asc">A-->Z</option>
   <option defaultValue="2">Z-->A</option>
   <option defaultValue="3">Most Populars</option>
   <option defaultValue="4">Least Populars</option>

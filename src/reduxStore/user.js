@@ -24,7 +24,7 @@ export const addFavList = (movieId) => ({
 
 const initialState = {
     "avatarUrl": "https://i.picsum.photos/id/1005/150/150.jpg?hmac=-Q1z4K5WO9Q7qDB-R9vrj9440_mRxpeHZMOFHblbB6s",
-    "username": "username",
+    "username": "sahinde",
     "password": "password",
     "socials": {
         "twitter": "https://twitter.com/",
