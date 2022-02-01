@@ -1,39 +1,31 @@
-import React from "react";
+ import React from "react";
 import {  useParams } from "react-router-dom";
 import { useQueries, useQuery } from 'react-query';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchPopularTopMovies, fetchMovieGenres } from '../api';
+import { fetchMovieGenres } from '../api';
 import { getGenres } from '../reduxStore/getGenres';
 import { CardOne } from "../styledComponents/Card";
 import { ThirdButton } from "../styledComponents/Button";
-
-
-
+import { Image } from "react-bootstrap";
 const Filter = (props) => {
   const params = useParams(); 
   console.log(params);
 const dispatch = useDispatch()
-
-
- /* const { genres } = useSelector(state => state)
- 
- const genresQuery = useQuery("genres", () => fetchMovieGenres, { reply: false })
-
-  console.log("GENRES:::", genresQuery)
-
-  genresQuery?.data?.then((val) =>
+const { genres } = useSelector(state => state)
+const genresQuery = useQuery("genres", () => fetchMovieGenres, { reply: false }) 
+console.log("GENRES:::", genresQuery) 
+genresQuery?.data?.then((val) =>
     dispatch(getGenres(val?.data?.genres))
   )
- */
-  return (
+ return (
     <>
       <h1>Sort/Filter Page</h1>
       <div className="container">
   <div className="row">
     <div className="col-4">
-    {/* dropdown */}
-    <select className="form-select" aria-label="Default select example" value={'DEFAULT'}  onChange={(e) => dispatch((e.target.options[e.target.selectedIndex].value))}>
-  <option value="DEFAULT" >Sort By</option>
+    
+    <select className="form-select" aria-label="Default select example" onChange={(e) => dispatch((e.target.options[e.target.selectedIndex].value))}>
+  <option defaultValue="DEFAULT" >Sort By</option>
   <option defaultValue="original_title.asc">A-->Z</option>
   <option defaultValue="2">Z-->A</option>
   <option defaultValue="3">Most Populars</option>
@@ -45,22 +37,20 @@ const dispatch = useDispatch()
 <CardOne>
 <h4>From:</h4>
 <h4>To:</h4> 
- <ThirdButton>Action</ThirdButton> 
- <ThirdButton>Adventure</ThirdButton> 
- <ThirdButton>Comedy</ThirdButton> 
- <ThirdButton>Romance</ThirdButton> 
- <ThirdButton>Drama</ThirdButton> 
- <ThirdButton>Crime</ThirdButton> 
+<div>
+          {
+            genres?.map(item=> <ThirdButton>{item.name}</ThirdButton>)
+          }
+        </div>
 </CardOne>
     </div>
     <div className="col-7"><CardOne>
-    {/*   <div>
-          {
-            genres?.map(item=> <button>{item.name}</button>)
-          }
-        </div> */} 
+      <div>
+  
+        </div>
       
         </CardOne>
+    
         </div>
   </div>
 </div>
@@ -68,7 +58,19 @@ const dispatch = useDispatch()
   );
 };
 
-export default Filter;
+export default Filter;  
+ 
+ 
+
+
+
+
+
+
+  
+
+ 
+ 
   
        
-    
+   

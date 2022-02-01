@@ -6,7 +6,7 @@ import { useQueries } from 'react-query';
 import { useSelector } from 'react-redux';
 import { fetchSingleMovie } from '../api';
 import { useDispatch } from 'react-redux';
-import { addFavList, addSeenList } from '../reduxStore/user';
+import { addFavList, addSeenList } from '../reduxStore/userInit';
 import {MdFavorite} from "react-icons/md"
 import {BsSearch} from "react-icons/bs"
 import {FaTwitter} from "react-icons/fa"

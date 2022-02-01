@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+ import React, { useEffect, useState } from 'react';
 import { SearchContext } from "../context/SearchContext"
 import { useLocation, useNavigate } from "react-router-dom"
 import { useContext } from 'react';
@@ -6,8 +6,9 @@ import { useQuery } from "react-query";
 import { fetchMovies } from '../api';
 import { Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
-import Paginate from './Pagination';
+
 import { CardDescription } from '../styledComponents/Card';
+import Pagination from './Pagination';
 //import NotFound from "../components/NotFound";
 
 const SearchSection = (props) => {
@@ -56,7 +57,7 @@ function formSubmit(event) {
                 </form>
               <div className="container d-flex">
          
-{ data?.results?.map(item => <Link className="text-decoration-none" to={"/movies"}> 
+{ data?.total_pages?.map(item => <Link className="text-decoration-none" to={"/movies"}> 
   <Card style={{ width: '18rem' }} >
   <Card.Img variant="top" src={`https://image.tmdb.org/t/p/w500` + item.poster_path} />
   <Card.Body>
@@ -70,6 +71,9 @@ function formSubmit(event) {
   </Card.Body>
 </Card>
 </Link> )}
+<br />
+<br />
+<div><Pagination/></div>
 
 
               </div>
@@ -81,22 +85,14 @@ function formSubmit(event) {
      
 }
 
-export default SearchSection;         
+export default SearchSection;      
                      
               
 
 
-
-
-
-
-
-     
-
-
   
   
  
 
   
- 
+  

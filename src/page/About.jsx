@@ -14,6 +14,7 @@ const About = (props) => {
 <li className="d-flex justify-content-center">Redux </li>
 <li className="d-flex justify-content-center">Styled Components </li>
 <li className="d-flex justify-content-center">Redux-Persist</li>
+<li className="d-flex justify-content-center">React-Bootstrap</li>
   </ul></ul>
   </>) 
 };

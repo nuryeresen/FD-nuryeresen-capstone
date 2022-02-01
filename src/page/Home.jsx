@@ -83,9 +83,9 @@ const Home = (props) => {
     </Card.Text>
     <Card.Text className="text-muted">
 
-    GENRES:{genres?.data?.genres?.filter((genre) =>
+ {/*    GENRES:{genres?.data?.genres?.filter((genre) =>
                  genre.name
-                )}
+                )} */}
     </Card.Text>
   </Card.Body>
 </Card>

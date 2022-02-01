@@ -4,7 +4,7 @@ import { ThirdButton} from "../styledComponents/Button"
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { validateUser } from '../reduxStore/user';
+import { validateUser } from '../reduxStore/userInit';
 
 const Login = (props) => {
   const navigate = useNavigate()

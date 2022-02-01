@@ -5,14 +5,17 @@ import { ThemeContext } from "../../context/ThemeContext";
 import { useContext } from "react";
 import { routes } from "../../routes";
 import {Button, SecondaryButton} from "../../styledComponents/Button";
-//import {IoLogOut} from "react-icons/ıo"
-//import { useDispatch, useSelector } from 'react-redux';
-
+import {FaRegUserCircle} from "react-icons/fa"
+import {BiLogIn} from "react-icons/bi"
+import { useDispatch, useSelector } from 'react-redux';
+import {BiLogOut} from "react-icons/bi"
+import { logoutUser } from "../../reduxStore/userInit";
 const Navbar = (props) => {
-  //const dispatch = useDispatch()
+  const dispatch = useDispatch()
   const { theme } = useContext(ThemeContext);
   const context = useContext(ThemeContext);
-  //const { user } = useSelector(state => state)
+  const {user} = useSelector(state => state)
+  
   console.log(context);
   const openDropdown = () => {
     document.getElementById("movies-dropdown").classList.add("d-block")
@@ -21,14 +24,15 @@ const closeDropdown = () => {
     document.getElementById("movies-dropdown").classList.remove("d-block")
 }
 
+
   return (
     <>
      <div className="col-sm-12 d-flex justify-content-end">
      <div className={`navbar navbar-expand-lg ${theme.navbar}`}>
       <div className=" d-flex justify-content-center m-4">
-       
+ 
        <ChangeThemeButton /> 
-     
+    
   <div className='btn-group px-3 text-muted' onMouseEnter={openDropdown} onMouseLeave={closeDropdown}>
   <Link to="/sort-filter" >
      <SecondaryButton><h5 className=" d-flex justify-content-center">Movies</h5></SecondaryButton>
@@ -46,6 +50,19 @@ const closeDropdown = () => {
         { routes.filter(item => item.isNav).map((item, index) => <li className="pt-3 px-3 " key={index}><Link to={item.pathname} className="text-decoration-none text-danger "><h3>{item.name}</h3></Link></li>)}      
         </div>
         </div>
+       {/*  {
+              !user.userLogin ?
+                <Link className="nav-item nav-link active text-light fw-bold " to="/login">
+                  <BiLogIn />
+                </Link>
+                : <> <Link className="nav-item nav-link active text-light fw-bold " to="/profile">
+                  < FaRegUserCircle />
+                </Link>
+                  <Link className="nav-item nav-link active text-light fw-bold " to="/login" onClick={() => dispatch(logoutUser())} >
+                    <BiLogOut />
+                  </Link>
+                </>
+            } */}
         </div>
   </div>
   </div>

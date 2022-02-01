@@ -74,7 +74,7 @@ return(
             reviewsData?.results[0]?.author
           }          
         </p> {
-            reviewsData?.results[0]?.content?.slice(0, 500)
+            reviewsData?.results[0]?.content?.slice(0, 300)
           }..
         </Card>
       </div>

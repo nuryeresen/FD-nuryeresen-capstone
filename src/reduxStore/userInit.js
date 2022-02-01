@@ -1,16 +1,16 @@
 const VALIDATE_USER = "VALIDATE_USER"
 const ADD_SEEN_MOVIES = "ADD_SEEN_MOVIES"
 const ADD_FAV_MOVIES = "ADD_FAV_MOVIES"
-const USER_LOGOUT = "USER_LOGOUT"
+const LOGOUT_USER = "LOGOUT_USER"
 
 export const validateUser = (username, password) => ({
     type: VALIDATE_USER,
     payload: { username, password }
 })
 
-export const userLogout = () => ({
-    type: USER_LOGOUT
-})
+export const logoutUser = () => ({
+    type: LOGOUT_USER,
+    })
 
 export const addSeenList = (movieId) => ({
     type: ADD_SEEN_MOVIES,
@@ -54,8 +54,8 @@ const initialState = {
         case ADD_SEEN_MOVIES:
             return !user.seenList.seenFilms.includes(action.payload) ?
                 { ...user, seenList: { seenFilms: [...user.seenList.seenFilms, action.payload], totalCount: user.seenList.totalCount + 1 } } : user
-                case USER_LOGOUT: 
-                    return initialState
+                case LOGOUT_USER:
+                return {...user, userLogin : false}
                 default:
             return user
           }
