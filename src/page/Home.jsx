@@ -21,8 +21,10 @@ const Home = (props) => {
       select: (data) => data.data.results,
       retry: false,
     });
-  
-  
+  console.log(filter)
+  console.log(setFilter)
+  console.log(setFilter)
+  console.log(query)
   function formSubmit(event) {
     event.preventDefault();
     if (!!event.target.q.value.length) {

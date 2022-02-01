@@ -76,6 +76,8 @@ const Profile = (props) => {
         },
       ];
       console.log(columns)
+      console.log(state)
+      console.log(setState)
   return (
     <>
       <h1>Profile</h1>

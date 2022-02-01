@@ -1,12 +1,12 @@
  import React from "react";
 import {  useParams } from "react-router-dom";
-import { useQueries, useQuery } from 'react-query';
+import { useQuery } from 'react-query';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchMovieGenres } from '../api';
 import { getGenres } from '../reduxStore/getGenres';
 import { CardOne } from "../styledComponents/Card";
 import { ThirdButton } from "../styledComponents/Button";
-import { Image } from "react-bootstrap";
+
 const Filter = (props) => {
   const params = useParams(); 
   console.log(params);

@@ -13,6 +13,8 @@ const Login = (props) => {
   const [password, setPassword] = useState("")
   const { user } = useSelector(state => state)
   const [isLogin, setIsLogin]= useState()
+  console.log(isLogin)
+  console.log(setIsLogin)
   // NAVİGATE REDUX
   useEffect(() => {
     if (user.userLogin) {

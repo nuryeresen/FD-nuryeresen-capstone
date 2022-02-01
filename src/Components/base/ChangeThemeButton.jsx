@@ -4,7 +4,7 @@ import {Button} from "../../styledComponents/Button";
 import {BsFillLightbulbFill} from "react-icons/bs"
 function ChangeThemeButton() {
   const { setThemeName, themeName } = useContext(ThemeContext);
-
+console.log(themeName);
   return (
     <Button
       onClick={() => {
