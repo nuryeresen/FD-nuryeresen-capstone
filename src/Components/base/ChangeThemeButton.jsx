@@ -9,10 +9,10 @@ function ChangeThemeButton() {
     <Button
       onClick={() => {
         setThemeName((prev) => (prev === "light" ? "dark" : "light"));
-        console.log(themeName);
+  
       }}
     >
-      {/*  {`${themeName}`} */}
+  
      < BsFillLightbulbFill/>
     </Button>
   );

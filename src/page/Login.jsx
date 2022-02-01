@@ -1,20 +1,3 @@
-/* REDUX
-import { createStore, applyMiddleware } from "redux";
-import { persistStore, persistReducer } from "redux-persist";
-import { composeWithDevTools } from "redux-devtools-extension";
-import { reducer } from "./reducer";
-import thunk from "redux-thunk";
-import storage from "redux-persist/lib/storage";
-
-const persistConfig = { key: "app", storage };
-let persistedReducer = persistReducer(persistConfig, reducer);
-let store = createStore(
-  persistedReducer,
-  composeWithDevTools(applyMiddleware(thunk)) 
-
-export default Login; */
-
-
 
 import React from "react";
 import { ThirdButton} from "../styledComponents/Button"
@@ -36,21 +19,8 @@ const Login = (props) => {
      (navigate("/profile"))
     }
   }, [user,navigate])
-//NAVİGATEE IF
- /*  function handleLogin(e) {
-    e.preventDefault();
-    const user = JSON.parse(localStorage.getItem("userData"));
-    console.log("target", e.target.username.value);
 
-    if (user.username === e.target.username.value && user.password === e.target.password.value) {
-
-        console.log("girildi", user);
-        navigate("/profile");
-        setIsLogin(true);
-    }
-    else{
-        navigate("/login");
-    }} */
+ 
 
   return(
   <>

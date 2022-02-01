@@ -8,6 +8,8 @@ import { Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import Paginate from './Pagination';
 import { CardDescription } from '../styledComponents/Card';
+//import NotFound from "../components/NotFound";
+
 const SearchSection = (props) => {
 
     const location= useLocation();
@@ -23,32 +25,35 @@ useEffect(()=> {
 }, [searchValue])
 console.log(location)
 
- function formSubmit(event) {
+function formSubmit(event) {
   event.preventDefault();
-  if (!!event.target.value) {
-      setQ(event.target.value);
-      navigate(`/search?query=${event.target.value}`);
+  if (!!event.target.q.value.length) {
+      setQ(event.target.q.value);
+      navigate(`/search?query=${event.target.q.value}`);
   }
-  event.target.value = '';
+  event.target.q.value = '';
 }
+
   return (
     <>
     
       <div className="container mt-3">
           <div className='row text-light'>
-              <div className="col-sm-12">
-                  <label htmlFor="search" className="form-label fs-3"></label>
-                  <form onSubmit={formSubmit}>
-                  <input name="q" 
-                  type="text"
-                   className="form-control"
-                    id="search"
-                      placeholder="Search"  
-                      defaultValue={searchValue} 
-                      onChange={(event) => {setSearchValue(event.target.value) }} />
-                     </form> 
-                           
-               </div>
+                <form onSubmit={formSubmit}>
+                    <div className="mt-5 mb-3">
+                        <input
+                            name="q"
+                            type="text"
+                            className="form-control"
+                            id="search"
+                            placeholder="Search" 
+                            defaultValue={searchValue}
+                        />
+                    </div>
+                    <button type="submit" className="btn btn-danger">
+                        Search
+                    </button>
+                </form>
               <div className="container d-flex">
          
 { data?.results?.map(item => <Link className="text-decoration-none" to={"/movies"}> 
@@ -68,7 +73,7 @@ console.log(location)
 
 
               </div>
-              <div className='col-sm-12 m-3'><Paginate/> </div>
+            
           </div>
       </div>
 

@@ -6,17 +6,17 @@ import SearchSection from "./page/SearchSection";
 import Profile from "./page/Profile";
 import NotFound from "./page/NotFound";
 import Detail from "./page/Detail";
-import Contact from "./page/Contact";
+
 export const routes = [
-  {name: "Home", pathname: "/", element: Home, isNav:true},
-  {name: "Movies", pathname: "/sort-filter", element: SortFilter, isNav:false},
-  {name: "Movies", pathname: "/sort-filter/:type", element: SortFilter, isNav:false},
-  {name: "Profile", pathname: "/profile", element: Profile, isNav:true},
-  {name: "Login", pathname: "/login", element: Login, isNav:true},
-  {name: "Detail", pathname: "/movies/:movieId", element: Detail, isNav:false},
-  {name: "About", pathname: "/about", element: About, isNav:true},
-  {name: "Search", pathname: "/search", element: SearchSection, isNav:false},
-  {name: "NotFound", pathname: "*", element: NotFound, isNav:false},
-  {name: "Contact", pathname: "/contact", element: Contact, isNav:false},
+  {name: "Home", pathname: "/", element: Home, isNav:true, isLogin:true},
+  {name: "Movies", pathname: "/sort-filter", element: SortFilter, isNav:false, isLogin:true},
+  {name: "Movies", pathname: "/sort-filter/:type", element: SortFilter, isNav:false, isLogin:true},
+  {name: "Profile", pathname: "/profile", element: Profile, isNav:true, isLogin:true},
+  {name: "Login", pathname: "/login", element: Login, isNav:true , isLogin:false},
+  {name: "Detail", pathname: "/movies/:movieId", element: Detail, isNav:false, isLogin:false},
+  {name: "About", pathname: "/about", element: About, isNav:true, isLogin: true},
+  {name: "Search", pathname: "/search", element: SearchSection, isNav:false , isLogin: true},
+  {name: "NotFound", pathname: "*", element: NotFound, isNav:false, isLogin: true},
+
 
 ]

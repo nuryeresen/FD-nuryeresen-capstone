@@ -15,12 +15,12 @@ import Pagination from "./Pagination";
 import { MainContainer } from "../styledComponents/MainContainer";
 import Slider from "react-slick";
 import sliderSettings from "../Components/slider";
-
+import { useNavigate } from 'react-router-dom';
 const Home = (props) => {
   const [search, setSearch] = useState("");
   const [q, setQ] = useState([]);
   const [filter, setFilter] = useState("");
- 
+  const navigate = useNavigate();
   
   const { isLoading, isError, error, isFetched, isFetching, data, ...query } =
     useQuery("movie", fetchDiscoverMovies, {
@@ -28,6 +28,17 @@ const Home = (props) => {
       retry: false,
     });
   
+  
+  function formSubmit(event) {
+    event.preventDefault();
+    if (!!event.target.q.value.length) {
+        setQ(event.target.q.value);
+        navigate(`/search?query=${event.target.q.value}`);
+    }
+    event.target.q.value = '';
+}
+
+ 
   const genres = useQuery("genres", fetchMovieGenres, {
     retry: false,
   
@@ -35,11 +46,23 @@ const Home = (props) => {
 
   return (
     <>
-     <SearchSection/>
- <div className="col-sm-12 d-flex justify-content-center">
-      
-      
-      </div>
+   <div className="container">
+                <form onSubmit={formSubmit}>
+                    <div className="mt-5 mb-3">
+                        <input
+                            name="q"
+                            type="text"
+                            className="form-control"
+                            id="search"
+                            defaultValue={q}
+                            placeholder="Search" 
+                        />
+                    </div>
+                    <button type="submit" className="btn btn-danger">
+                        Search
+                    </button>
+                </form>
+            </div>
       
       <h3><RiCompassDiscoverLine/>Discover</h3>
 

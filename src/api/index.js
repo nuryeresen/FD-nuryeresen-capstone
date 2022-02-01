@@ -17,6 +17,6 @@ export const fetchPopularTopMovies = (type, page) => BASE_AXIOS.get(`https://api
 
 export const fetchSingleMovieCredits = (movieId) => BASE_AXIOS.get(`https://api.themoviedb.org/3/movie/${movieId}/credits?api_key=${API_KEY}`)
 
-
-
 export const fetchReviews = (movieId) => BASE_AXIOS.get(`https://api.themoviedb.org/3/movie/${movieId}/reviews?api_key=${API_KEY}`)
+
+

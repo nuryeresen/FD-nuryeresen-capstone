@@ -5,11 +5,14 @@ import { ThemeContext } from "../../context/ThemeContext";
 import { useContext } from "react";
 import { routes } from "../../routes";
 import {Button, SecondaryButton} from "../../styledComponents/Button";
-
+//import {IoLogOut} from "react-icons/ıo"
+//import { useDispatch, useSelector } from 'react-redux';
 
 const Navbar = (props) => {
+  //const dispatch = useDispatch()
   const { theme } = useContext(ThemeContext);
   const context = useContext(ThemeContext);
+  //const { user } = useSelector(state => state)
   console.log(context);
   const openDropdown = () => {
     document.getElementById("movies-dropdown").classList.add("d-block")
@@ -17,14 +20,13 @@ const Navbar = (props) => {
 const closeDropdown = () => {
     document.getElementById("movies-dropdown").classList.remove("d-block")
 }
+
   return (
     <>
-     <div className="col-sm-12 d-flex justify-content-end">{/* responsive değilll */}
+     <div className="col-sm-12 d-flex justify-content-end">
      <div className={`navbar navbar-expand-lg ${theme.navbar}`}>
       <div className=" d-flex justify-content-center m-4">
-        {/* <h4 className="d-inline justify-content-center border border-danger text-muted">
-          Capstone Project
-        </h4> */}
+       
        <ChangeThemeButton /> 
      
   <div className='btn-group px-3 text-muted' onMouseEnter={openDropdown} onMouseLeave={closeDropdown}>
@@ -35,10 +37,12 @@ const closeDropdown = () => {
     <li><Link className="dropdown-item" to="sort-filter/popular">Popular</Link></li>
     <li><Link className="dropdown-item" to="sort-filter/top-rated">Top Rated</Link></li>
     </ul>
+
     <div className="container">
   <div className="row">
    <div className="col-sm-6">
     <div className="collapse navbar-collapse list-unstyled " >
+      
         { routes.filter(item => item.isNav).map((item, index) => <li className="pt-3 px-3 " key={index}><Link to={item.pathname} className="text-decoration-none text-danger "><h3>{item.name}</h3></Link></li>)}      
         </div>
         </div>

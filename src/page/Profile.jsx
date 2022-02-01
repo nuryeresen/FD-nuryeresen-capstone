@@ -19,28 +19,28 @@ const Profile = (props) => {
     }
     const dispatch = useDispatch()
     const {user} = useSelector(state=> state)
-    console.log("USSER::", user)
+   
    const [state, setState] = useState([])
     /* const [loading, setLoading] = useState(true)
     const [error, setError] = useState("");
     const [products, setProducts] = useState([]); */ 
     //axious
    
-    const allFilms = user.favoritesList.favoritesFilms?.concat(user.seenList.seenFilms)
-    const reducedAllFilms = allFilms.filter((item, index) => allFilms.indexOf(item) === index)
+    const allFilms = user?.favoritesList?.favoritesFilms?.concat(user?.seenList?.seenFilms)
+  const reducedAllFilms = allFilms?.filter((item, index) => allFilms?.indexOf(item) === index)
     console.log("ALL:::", allFilms)
     console.log("ALL:::", reducedAllFilms)
 
     const movies = useQueries(
-      reducedAllFilms.map(movieId => {
+      reducedAllFilms?.map(movieId => {
         return {
           queryKey: ["movies", movieId],
           queryFn: () => fetchSingleMovie(movieId),
           retry: false,
-          select: state => state.data
+          select: state => state?.data
         }
       }))
-      const data = movies.map(item => item?.data).map(item => ({...item, genres: [item?.genres?.map(item => item.name)].toString()}))
+      const data = movies?.map(item => item?.data).map(item => ({...item, genres: [item?.genres?.map(item => item.name)].toString()}))
 
       console.log("DATA:::",data)
       console.log("MOVIES:::",movies)
@@ -83,9 +83,23 @@ const Profile = (props) => {
     <>
     
       <h1>Profile</h1>
- 
-      <div>
-      <form>
+ <div className="container">
+  <div className="row">
+
+    <div className="col-4"> <img width={"200px"} src={user.avatarUrl} alt="" />
+      <p className="username"> {user.username.toUpperCase()} </p>
+            <p className="join-date"> {user.joinDate} </p>
+            <ul className='list'>
+              <li>  <span className='movie-counts'>{user.seenList.totalCount}</span> Seen Movies</li>
+              <li>  <span className='movie-counts'>{user.favoritesList.totalCount}</span> Favorites Movies</li>
+            </ul>
+              <Link to={user.socials.instagram}>
+       <FiInstagram  /> 
+              </Link>
+              <Link to={user.socials.twitter}>
+                <FaTwitter  /> 
+              </Link></div>
+    <div className="col-sm-8"><form>
 <h3 > Filter By </h3>
 <select id = "myList" onChange = {favTutorial} >
 <option> Closest release date</option>
@@ -108,7 +122,8 @@ const Profile = (props) => {
 
 </tbody>
 </table></div>
-
+  </div>
+</div>
     </>
   );
 };
