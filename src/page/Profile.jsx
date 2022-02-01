@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-//import { addFavList, addSeenList } from '../reduxStore/userInit';
-import { useState, useEffect } from "react";
+
+import { useState} from "react";
 import { useQueries } from 'react-query';
 import { useSelector } from 'react-redux';
 import { fetchSingleMovie } from '../api';
@@ -11,7 +11,7 @@ import {MdFavorite} from "react-icons/md"
 import {BsSearch} from "react-icons/bs"
 import {FaTwitter} from "react-icons/fa"
 import {FiInstagram} from "react-icons/fi"
-import { Card } from "../styledComponents/Card";
+
 const Profile = (props) => {
   function favTutorial() {
     var mylist = document.getElementById("myList");
@@ -21,10 +21,7 @@ const Profile = (props) => {
     const {user} = useSelector(state=> state)
    
    const [state, setState] = useState([])
-    /* const [loading, setLoading] = useState(true)
-    const [error, setError] = useState("");
-    const [products, setProducts] = useState([]); */ 
-    //axious
+    
    
     const allFilms = user?.favoritesList?.favoritesFilms?.concat(user?.seenList?.seenFilms)
   const reducedAllFilms = allFilms?.filter((item, index) => allFilms?.indexOf(item) === index)
@@ -78,10 +75,9 @@ const Profile = (props) => {
         )
         },
       ];
-      
+      console.log(columns)
   return (
     <>
-    
       <h1>Profile</h1>
  <div className="container">
   <div className="row">

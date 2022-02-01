@@ -28,8 +28,8 @@ useEffect(() => {
   const genres = useQuery("genres", fetchMovieGenres, {
     retry: false,
   });
- // console.log("genres.:", genres);
-  //console.log(period);
+ console.log("genres.:", genres);
+  console.log(period);
 
   
 

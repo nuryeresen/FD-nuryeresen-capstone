@@ -1,5 +1,5 @@
-import React , { Component } from "react";
-import { useState,useEffect } from "react";
+import React  from "react";
+import { useState } from "react";
 import { Card } from "react-bootstrap";//styled-comp yap
 import { useQuery } from "react-query";
 import { fetchDiscoverMovies,fetchMovieGenres } from "../api";
@@ -7,17 +7,11 @@ import NotFound from "./NotFound";
 import {HiTrendingUp} from "react-icons/hi"
 import {RiCompassDiscoverLine} from "react-icons/ri"
 import { Link } from "react-router-dom";
-import LoadMore from "./LoadMore";
 import Trending from "./Trending"
-import { useContext } from "react";
-import SearchSection from "./SearchSection"
-import Pagination from "./Pagination";
-import { MainContainer } from "../styledComponents/MainContainer";
 import Slider from "react-slick";
 import sliderSettings from "../Components/slider";
 import { useNavigate } from 'react-router-dom';
 const Home = (props) => {
-  const [search, setSearch] = useState("");
   const [q, setQ] = useState([]);
   const [filter, setFilter] = useState("");
   const navigate = useNavigate();
@@ -37,13 +31,9 @@ const Home = (props) => {
     }
     event.target.q.value = '';
 }
-
- 
   const genres = useQuery("genres", fetchMovieGenres, {
     retry: false,
-  
   });
-
   return (
     <>
    <div className="container">
@@ -83,32 +73,30 @@ const Home = (props) => {
     </Card.Text>
     <Card.Text className="text-muted">
 
- {/*    GENRES:{genres?.data?.genres?.filter((genre) =>
+    {genres?.data?.genres?.filter((genre) =>
                  genre.name
-                )} */}
+                )}
     </Card.Text>
   </Card.Body>
 </Card>
   
 </Link>  
 </div>
-
-
            ))}
                 </Slider>
-           
-           
+            
           {data?.length === 0 && <NotFound />}
-
-        </div>
+</div>
        
            <h3><HiTrendingUp/>Trending</h3>     
-
-             <Trending/> 
-        
-         
-    </>
+  <Trending/> 
+      </>
   );
 };
 
 export default Home;
+          
+           
+         
+           
+   

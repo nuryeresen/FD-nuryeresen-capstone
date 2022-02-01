@@ -1,17 +1,12 @@
-
 import {useParams} from "react-router-dom"
 import { useQuery } from 'react-query';
 import { fetchSingleMovie, fetchSingleMovieCredits,fetchReviews,fetchRecommendations } from '../api';
 import {Card} from "../styledComponents/Card"
-import { useEffect } from "react";
-import { useContext } from "react";
-import { SearchContext } from "../context/SearchContext"
 import { CastCard, CastCardDescription } from '../styledComponents/Card'
 import Slider from "react-slick";
 import CastSliderSettings from "../Components/CastSlider";
 const Detail = (props) => {
     const {movieId} = useParams()
-    const {searchValue, setSearchValue} = useContext(SearchContext)
 
   const reviewsQuery = useQuery(["reviews", movieId], () => fetchReviews(movieId), { retry: false, select: state => state?.data })
   console.log("REVIEWS:::", reviewsQuery)
@@ -85,20 +80,23 @@ return(
         </Card>
       </div>
       <div>
-      <Slider {...CastSliderSettings}>
-     {/*  <CastCard> */}   <h6>Recommendations:</h6>
+   
+     
 
-       {
+    <h4>Recommendations:</h4>
+   <div className="container">
+    <Slider {...CastSliderSettings}>
+    
+    {
     recommendations?.data?.data?.results.map((item, index) =>
         <h5 key={index}>{item.original_title}</h5>
-        
-    )
-}
-
-
-{/* </CastCard> */}
-
+      
+    )}
 </Slider>
+      </div>
+
+
+
       </div>
         
          

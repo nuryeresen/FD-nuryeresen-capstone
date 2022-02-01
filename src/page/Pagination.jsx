@@ -12,7 +12,7 @@ function Pagination(props) {
   const [offset, setOffset] = useState(0);
   const [movieData, setMovieData] = useState([]);
   const {searchValue, setSearchValue} = useContext(SearchContext)
-  const navigate = useNavigate()
+ 
   useEffect(() => {
     setMovieData(movieData);
     setPageCount(Math.ceil(movieData.length / 3));
@@ -35,6 +35,7 @@ console.log(movieData)
   return (
     <>
     <div className="d-flex justify-content-center">
+      
    {movieData
             .filter((d) => d.name.toLowerCase().startsWith(q))
             .slice(offset, offset + 3)

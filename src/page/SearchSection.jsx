@@ -1,16 +1,10 @@
  import React, { useEffect, useState } from 'react';
-import { SearchContext } from "../context/SearchContext"
-import { useLocation, useNavigate } from "react-router-dom"
-import { useContext } from 'react';
-import { useQuery } from "react-query";
-import { fetchMovies } from '../api';
 import { Card } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom';
-import { CardDescription } from '../styledComponents/Card';
-import Pagination from './Pagination';
-//import NotFound from "../components/NotFound";
-
+import { useLocation, useNavigate } from "react-router-dom"
+import Slider from "react-slick";
+import sliderSettings from "../Components/slider";
 const SearchSection = (props) => {
 const params=useParams()
     const location= useLocation();
@@ -23,7 +17,7 @@ const params=useParams()
  
  console.log(params?.search) 
  console.log(searchValue)
-
+console.log(q)
 useEffect(()=> {
     
     (searchValue !== "" &&fetch(`https://api.themoviedb.org/3/search/movie?query=${searchValue}&api_key=a75c039072f6f6025a9c53a11184882b`).then(response => response.json())
@@ -63,9 +57,10 @@ function formSubmit(event) {
                         Search
                     </button>
                 </form>
-              <div className="container d-flex">
-         
-{ data?.results?.map(item => <Link className="text-decoration-none" to={"/movies"}> 
+              <div className="container ">
+              <div className=" m-3">
+              <Slider {...sliderSettings}>
+{ data?.results?.map(item => <Link className="text-decoration-none" to={"/movies/"+ item.id }> 
   <Card style={{ width: '18rem' }} >
   <Card.Img variant="top" src={`https://image.tmdb.org/t/p/w500` + item.poster_path} />
   <Card.Body>
@@ -79,10 +74,9 @@ function formSubmit(event) {
   </Card.Body>
 </Card>
 </Link> )}
-<br />
-<br />
-<div><Pagination/></div>
 
+</Slider>
+</div>
 
               </div>
             

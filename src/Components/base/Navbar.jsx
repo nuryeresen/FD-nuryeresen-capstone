@@ -4,14 +4,14 @@ import ChangeThemeButton from "./ChangeThemeButton"
 import { ThemeContext } from "../../context/ThemeContext";
 import { useContext } from "react";
 import { routes } from "../../routes";
-import {Button, SecondaryButton} from "../../styledComponents/Button";
-import {FaRegUserCircle} from "react-icons/fa"
-import {BiLogIn} from "react-icons/bi"
-import { useDispatch, useSelector } from 'react-redux';
-import {BiLogOut} from "react-icons/bi"
-import { logoutUser } from "../../reduxStore/userInit";
+import { SecondaryButton} from "../../styledComponents/Button";
+import { useSelector } from 'react-redux';
+
+
+
+
 const Navbar = (props) => {
-  const dispatch = useDispatch()
+
   const { theme } = useContext(ThemeContext);
   const context = useContext(ThemeContext);
   const {user} = useSelector(state => state)
