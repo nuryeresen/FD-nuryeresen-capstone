@@ -39,7 +39,7 @@ genresQuery?.data?.then((val) =>
 <h4>To:</h4> 
 <div>
           {
-            genres?.map(item=> <ThirdButton>{item.name}</ThirdButton>)
+            genres?.map(item=> <ThirdButton >{item.name}</ThirdButton>)
           }
         </div>
 </CardOne>

@@ -84,9 +84,9 @@ return(
      
 
     <h4>Recommendations:</h4>
-   <div className="container">
+   <div className="container bg-danger bg-gradient">
     <Slider {...CastSliderSettings}>
-    
+
     {
     recommendations?.data?.data?.results.map((item, index) =>
         <h5 key={index}>{item.original_title}</h5>

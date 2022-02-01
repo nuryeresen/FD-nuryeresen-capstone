@@ -50,19 +50,6 @@ const closeDropdown = () => {
         { routes.filter(item => item.isNav && (item.isLogin === user.userLogin)).map((item, index) => <li className="pt-3 px-3 " key={index}><Link to={item.pathname} className="text-decoration-none text-danger "><h3>{item.name}</h3></Link></li>)}      
         </div>
         </div>
-       {/*  {
-              !user.userLogin ?
-                <Link className="nav-item nav-link active text-light fw-bold " to="/login">
-                  <BiLogIn />
-                </Link>
-                : <> <Link className="nav-item nav-link active text-light fw-bold " to="/profile">
-                  < FaRegUserCircle />
-                </Link>
-                  <Link className="nav-item nav-link active text-light fw-bold " to="/login" onClick={() => dispatch(logoutUser())} >
-                    <BiLogOut />
-                  </Link>
-                </>
-            } */}
         </div>
   </div>
   </div>

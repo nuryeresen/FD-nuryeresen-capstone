@@ -1,12 +1,11 @@
 const sliderSettings = {
+
   dots: true,
-  infinite: false,
-  speed: 500,
+  infinite: true,
+  autoplay: false,
   slidesToShow: 3,
-  slidesToScroll: 2,
-  initialSlide: 0, 
-  adaptiveHeight: true,
-  
+  slidesToScroll: 3,
+  initialSlide: 3,
 };
 
 export default sliderSettings;

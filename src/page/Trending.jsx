@@ -10,7 +10,7 @@ import Slider from "react-slick";
 import sliderSettings from "../Components/slider";
 const Trending = (props) => {
   //trending movies
-  const [period, setPeriod] = useState("day");
+  const [period, setPeriod] = useState("week");
   const [currentPageData, setCurrentPageData] = useState([]);
 // console.log("props", props);
   const { data } = useQuery(
