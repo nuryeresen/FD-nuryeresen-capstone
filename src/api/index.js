@@ -19,4 +19,6 @@ export const fetchSingleMovieCredits = (movieId) => BASE_AXIOS.get(`https://api.
 
 export const fetchReviews = (movieId) => BASE_AXIOS.get(`https://api.themoviedb.org/3/movie/${movieId}/reviews?api_key=${API_KEY}`)
 
+export const fetchRecommendations = (movieId) => BASE_AXIOS.get(`/movie/${movieId}/similar?api_key=${API_KEY}`)
+
 

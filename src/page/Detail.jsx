@@ -1,7 +1,7 @@
 
 import {useParams} from "react-router-dom"
 import { useQuery } from 'react-query';
-import { fetchSingleMovie, fetchSingleMovieCredits,fetchReviews } from '../api';
+import { fetchSingleMovie, fetchSingleMovieCredits,fetchReviews,fetchRecommendations } from '../api';
 import {Card} from "../styledComponents/Card"
 import { useEffect } from "react";
 import { useContext } from "react";
@@ -27,7 +27,13 @@ const Detail = (props) => {
   const movieCastData = movieCreditsQuery?.data?.cast
   const movieCrewData = movieCreditsQuery?.data?.crew
   const job = ["director", "producer"]
-  
+  const recommendations = useQuery(
+    ["movie recommendations", movieId],
+    () => fetchRecommendations(movieId),
+    {
+        retry: false,
+    }
+);
 return(
   <>
      
@@ -59,8 +65,8 @@ return(
             
           <CastCard > <img key={item} width={"100"} height={"150"} src={item.profile_path === null ? `https://tigres.com.tr/wp-content/uploads/2016/11/orionthemes-placeholder-image-1.png` : `https://image.tmdb.org/t/p/w200${item?.profile_path}`} alt="" />
             <CastCardDescription>
-              <h6 >{item.name}</h6>
-              <h6 > {item.character}</h6>
+              <h6>{item.name}</h6>
+              <h6> {item.character}</h6>
              </CastCardDescription>
 </CastCard>)
         }  
@@ -77,6 +83,22 @@ return(
             reviewsData?.results[0]?.content?.slice(0, 300)
           }..
         </Card>
+      </div>
+      <div>
+      <Slider {...CastSliderSettings}>
+     {/*  <CastCard> */}   <h6>Recommendations:</h6>
+
+       {
+    recommendations?.data?.data?.results.map((item, index) =>
+        <h5 key={index}>{item.original_title}</h5>
+        
+    )
+}
+
+
+{/* </CastCard> */}
+
+</Slider>
       </div>
         
          

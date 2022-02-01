@@ -47,7 +47,7 @@ const closeDropdown = () => {
    <div className="col-sm-6">
     <div className="collapse navbar-collapse list-unstyled " >
       
-        { routes.filter(item => item.isNav).map((item, index) => <li className="pt-3 px-3 " key={index}><Link to={item.pathname} className="text-decoration-none text-danger "><h3>{item.name}</h3></Link></li>)}      
+        { routes.filter(item => item.isNav && (item.isLogin === user.userLogin)).map((item, index) => <li className="pt-3 px-3 " key={index}><Link to={item.pathname} className="text-decoration-none text-danger "><h3>{item.name}</h3></Link></li>)}      
         </div>
         </div>
        {/*  {
