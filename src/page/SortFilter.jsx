@@ -6,9 +6,10 @@ import {
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import {Card} from "../styledComponents/Card";
+import { CardOne} from "../styledComponents/Card";
 import { Button } from "../styledComponents/Button";
-
+import { Card } from "react-bootstrap";
+import { Link } from "react-router-dom";
 const SortFilter = () => {
   const type = useParams().type;
   const location = useLocation();
@@ -69,11 +70,10 @@ const SortFilter = () => {
 
   return (
     <>
-      
       <div className="container">
-        <h4>Genre filter</h4>
-  <div className="row">
+      <div className="row">
     <div className="col-sm-12">
+    <h4 className="d-flex justify-content-center">Genre filter</h4>
       <select
         className="form-select"
         onChange={(e) => setSelectedGenre(e.target.value)}
@@ -85,7 +85,7 @@ const SortFilter = () => {
         ))}
       </select>
     
-    <h5> From:
+    <h5 className="d-flex justify-content-center"> From:
       <input
 
         type="date"
@@ -93,14 +93,14 @@ const SortFilter = () => {
         name="from_date"
         onChange={(e) => setStartDate(e.target.value)}
       /></h5>
-     <h5> To: <input
+     <h5 className="d-flex justify-content-center"> To: <input
         type="date"
         id="to_date"
         name="to_date"
         onChange={(e) => setEndDate(e.target.value)}
       /></h5>
 </div>
-        <h1>Sort filter</h1>
+        <h4 className="d-flex justify-content-center">Sort filter</h4>
 
     <div className="col-sm-12">
     
@@ -117,16 +117,25 @@ const SortFilter = () => {
     
       <div className="d-flex flex-wrap ">
         {filterData?.results?.map((item) => (
-          <Card
-            id={item.id}
-            key={item.id}
-            poster_path={item.poster_path}
-            title={item.title}
-            release_date={item.release_date}
-            genresMovie={genres?.filter((genre) =>
-              item?.genre_ids?.includes(genre.id)
-            )}
-          />
+        <div key={item.id}  className="col-sm ">
+           <Link className="text-decoration-none" to={"/movies/"+ item.id }> 
+  <Card style={{ width: '18rem' }} >
+  <Card.Img variant="top" src={`https://image.tmdb.org/t/p/w500` + item.poster_path} />
+  <Card.Body>
+    <Card.Title className="text-muted fw-bold ">{item.title}</Card.Title>
+    <Card.Text className="text-muted ">
+     RELEASE DATE: {item.release_date}
+    </Card.Text>
+    <Card.Text className="text-muted">
+     IMDB SCORE: {item.vote_average}
+    </Card.Text>
+    <Card.Text className="text-muted">
+    </Card.Text>
+  </Card.Body>
+</Card>
+  
+</Link>  
+</div> 
         ))}
       </div> 
 

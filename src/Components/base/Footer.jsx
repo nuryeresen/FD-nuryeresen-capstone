@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import {BiLogIn} from "react-icons/bi"
 import {FaHome} from "react-icons/fa"
 import {SiAboutdotme} from "react-icons/si"
-import {CgProfile} from "react-icons/cg"
+import {BiSearchAlt2} from "react-icons/bi"
 const Footer = (props) => {
   const { theme } = useContext(ThemeContext);
   return (
@@ -13,7 +13,6 @@ const Footer = (props) => {
       <div className={`py-5 ${theme.backgroundColor} ${theme.color}`}>
       <div className="container ">
         <footer className="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top ">
-         
           <small className="col-md-4 mb-0 text-muted">
             &copy; 2022 Capstone Project/ Şahinde Nur Yereşen
           
@@ -46,14 +45,12 @@ const Footer = (props) => {
             </li>
             <li className="nav-item m-3">
               <Link
-                to="/profile"
+                to="/search"
                 className="nav-Link text-decoration-none text-danger"
               >
-                <h5><CgProfile>Profile</CgProfile></h5>
+                <h5><BiSearchAlt2>Profile</BiSearchAlt2></h5>
               </Link>
             </li>
-            
-           
           </ul>
         </footer>
       </div>
