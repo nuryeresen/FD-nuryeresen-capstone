@@ -5,10 +5,10 @@ import { ThemeContext } from "../../context/ThemeContext";
 import { useContext } from "react";
 import { routes } from "../../routes";
 import { SecondaryButton} from "../../styledComponents/Button";
-import { useSelector, useDispatch, } from 'react-redux';
+import { useSelector, } from 'react-redux';
 
 const Navbar = (props) => {
-  const dispatch = useDispatch()
+ 
   const { theme } = useContext(ThemeContext);
   const context = useContext(ThemeContext);
   const {user} = useSelector(state => state)
@@ -45,27 +45,11 @@ const closeDropdown = () => {
     <div className="collapse navbar-collapse list-unstyled " >
       
         { routes.filter(item => item.isNav && (item.isLogin === user.userLogin)).map((item, index) => <li className="pt-3 px-3 " key={index}><Link to={item.pathname} className="text-decoration-none text-danger "><h3>{item.name}</h3></Link></li>)}    
-     {/*    {user.userLogin ? (
-                  <img
-                    className="rounded-circle"
-                    width="60"
-                    height="60"
-                    src="https://picsum.photos/id/1027/200/200"
-                    alt=""
-                  />
-                ) : (
-                  <img
-                    className="rounded-circle"
-                    width="60"
-                    height="60"
-                    src="https://picsum.photos/id/433/200/200"
-                    alt=""
-                  />
-                )} */}  
+     
         </div>
         </div>
         </div>
-        {/* <button onClick={() => dispatch(userLogout())}>log out</button> */}
+       
   </div>
   </div>
   </div>

@@ -17,6 +17,6 @@ export const routes = [
   {name: "About", pathname: "/about", element: About, isNav:true, isLogin: true},
   {name: "Search", pathname: "/search", element: SearchSection, isNav:false , isLogin: true},
   {name: "NotFound", pathname: "*", element: NotFound, isNav:false, isLogin: true, },
-  //{name: "Logout", pathname: "/", element: LogOut, isNav:true, isLogin: true, },
+ // {name: "Logout", pathname: "/", element: Logout, isNav:true, isLogin: true, },
 
 ]
