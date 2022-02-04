@@ -21,4 +21,12 @@ export const fetchReviews = (movieId) => BASE_AXIOS.get(`https://api.themoviedb.
 
 export const fetchRecommendations = (movieId) => BASE_AXIOS.get(`/movie/${movieId}/similar?api_key=${API_KEY}`)
 
+export const fetchTopRatedPopular = (category, page) =>
+BASE_AXIOS.get(`/movie/${category}?api_key=${API_KEY}&page=${page}`);
+
+export const fetchSortFilter = (page, sortValue, startDate, endDate, genre) =>
+BASE_AXIOS.get(
+    `/discover/movie?api_key=${API_KEY}&page=${page}&sort_by=${sortValue}&release_date.lte=${startDate}&release_date.gte=${endDate}&with_genres=${genre}`
+  );
+
 

@@ -52,14 +52,7 @@ const Footer = (props) => {
                 <h5><CgProfile>Profile</CgProfile></h5>
               </Link>
             </li>
-            <li className="nav-item m-3">
-              <Link
-                to="/search"
-                className="nav-Link text-decoration-none text-danger"
-              >
-                <h5>Search</h5>
-              </Link>
-            </li>
+            
            
           </ul>
         </footer>

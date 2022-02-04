@@ -25,7 +25,8 @@ useEffect(()=> {
 }, [searchValue])
 console.log(location)
 useEffect(()=> {
-   (setSearchValue(location.search.split("=")[1]))
+   (setSearchValue(location.search.split("0")[1]))
+  
 }, [location ])
 
 function formSubmit(event) {
