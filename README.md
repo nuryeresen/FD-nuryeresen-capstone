@@ -70,7 +70,7 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
  -->
 
- UPSCHOOL-CAPSTONE PROJECT-ŞAHİNDE NUR YEREŞEN
+### UPSCHOOL-CAPSTONE PROJECT-ŞAHİNDE NUR YEREŞEN
  URL: https://api.themoviedb.org/3/movie/550?api_key=a75c039072f6f6025a9c53a11184882b
 API KEY:a75c039072f6f6025a9c53a11184882b
 Used Technologies:
